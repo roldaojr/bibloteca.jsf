@@ -2,13 +2,11 @@ package biblioteca.dao;
 
 import java.util.List;
 
-import javax.annotation.PostConstruct;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.SessionScoped;
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 import biblioteca.JpaResourceBean;
 import biblioteca.dominio.Pessoa;
@@ -26,11 +24,27 @@ public class PessoaDao {
 		em.getTransaction().commit();
 		em.close();
 	}
+	
+	public void update(Pessoa pessoa) {
+		EntityManager em = jpa.getEMF().createEntityManager();
+		em.getTransaction().begin();
+		em.merge(pessoa);
+		em.getTransaction().commit();
+		em.close();		
+	}
 
+	public void delete(Pessoa pessoa) {
+		EntityManager em = jpa.getEMF().createEntityManager();
+		em.getTransaction().begin();
+		em.remove(em.merge(pessoa));
+		em.getTransaction().commit();
+		em.close();		
+	}
+	
 	public List<Pessoa> findAll() {
 		EntityManager em = jpa.getEMF().createEntityManager();
 		try{
-			Query query = em.createQuery("select e from Pessoa e");
+			TypedQuery<Pessoa> query = em.createQuery("from Pessoa", Pessoa.class);
 			return query.getResultList();			
 		} finally {
 			em.close();

@@ -5,6 +5,8 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.model.DataModel;
+import javax.faces.model.ListDataModel;
 
 import biblioteca.dao.PessoaDao;
 import biblioteca.dominio.*;
@@ -15,24 +17,49 @@ public class PessoaBean {
 	@ManagedProperty(value="#{pessoaDao}")
 	private PessoaDao pessoaDao;
 
-	private Pessoa novaPessoa;
+	private Pessoa pessoa;
+	private DataModel<Pessoa> listaPessoas;
 	
-	public Pessoa getNovaPessoa() {
-		if(novaPessoa == null) {
-			novaPessoa = new Pessoa();
+	public Pessoa getPessoa() {
+		if(pessoa == null) {
+			pessoa = new Pessoa();
 		}
-		return novaPessoa;
+		return pessoa;
 	}
 	
-	public List<Pessoa> getPessoas() {
-		return pessoaDao.findAll();
+	public DataModel<Pessoa> getPessoas() {
+		List<Pessoa> p = pessoaDao.findAll();
+		listaPessoas = new ListDataModel<>(p);
+		return listaPessoas;
 	}
 	
-	public void adicionar() {
-		pessoaDao.create(novaPessoa);
-		novaPessoa = null;
+	public String adicionar() {
+		pessoa = new Pessoa();
+		return "form?faces-redirect=true";
+	}
+	
+	public String atualizar() {
+		pessoa = (Pessoa)(listaPessoas.getRowData());
+		return "form?faces-redirect=true";
+	}
+	
+	public String salvar() {
+		pessoaDao.update(pessoa);
+		//pessoa = new Pessoa();
+		return "listar?faces-redirect=true";
 	}
 
+	public String confirmaApagar() {
+		pessoa = (Pessoa)(listaPessoas.getRowData());
+		return "apagar?faces-redirect=true";
+	}
+	
+	public String apagar() {
+		pessoaDao.delete(pessoa);
+		pessoa = null;
+		return "listar?faces-redirect=true"; 
+	}
+	
 	public PessoaDao getPessoaDao() {
 		return pessoaDao;
 	}
