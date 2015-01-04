@@ -1,22 +1,14 @@
 package biblioteca.dao;
 
-import java.util.List;
-import biblioteca.dominio.*;
+import javax.faces.bean.ApplicationScoped;
+import javax.faces.bean.ManagedBean;
 
-public class LivroDao {
-	public void create(Livro livro) {
-		
-	}
-	public List<Livro> findAllByTipo(int tipo) {
-		return null;
-	}
-	public Livro findByCodigoBarras(String codigoBarra) {
-		return null;
-	}
-	public void updateQuantidadeExemplaresDisponiveis() {
-		
-	}
-	public List<Livro> findAll() {
-		return null;
+import biblioteca.dominio.Livro;
+
+@ApplicationScoped
+@ManagedBean(name="livroDao")
+public class LivroDao extends GenericDao<Livro> {
+	public LivroDao() {
+		super(Livro.class);
 	}
 }
