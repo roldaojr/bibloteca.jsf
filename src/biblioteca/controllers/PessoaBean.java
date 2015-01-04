@@ -9,7 +9,7 @@ import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 
 import biblioteca.dao.PessoaDao;
-import biblioteca.dominio.*;
+import biblioteca.dominio.Pessoa;
 
 @SessionScoped
 @ManagedBean
@@ -45,7 +45,6 @@ public class PessoaBean {
 	
 	public String salvar() {
 		pessoaDao.update(pessoa);
-		//pessoa = new Pessoa();
 		return "listar?faces-redirect=true";
 	}
 
