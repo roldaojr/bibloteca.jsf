@@ -27,7 +27,7 @@ public class AutorBean {
 		return autor;
 	}
 	
-	public DataModel<Autor> getAutors() {
+	public DataModel<Autor> getAutores() {
 		List<Autor> p = autorDao.findAll();
 		listaAutors = new ListDataModel<>(p);
 		return listaAutors;
