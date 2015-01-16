@@ -18,14 +18,6 @@
           <b:inputText value="#{livroBean.livro.codigoBarra}"/>
         </div>
         <div>
-          <h:outputLabel value="Estante:" />
-          <b:inputText value="#{livroBean.livro.estante}"/>
-        </div>
-        <div>
-          <h:outputLabel value="Exemplares:" />
-          <b:inputText value="#{livroBean.livro.exemplares}"/>
-        </div>
-        <div>
           <h:outputLabel value="Ano:" />
           <b:inputText value="#{livroBean.livro.ano}"/>
         </div>
@@ -36,6 +28,14 @@
         <div>
           <h:outputLabel value="Edição:" />
           <b:inputText value="#{livroBean.livro.edicao}"/>
+        </div>
+        <div>
+          <h:outputLabel value="Estante:" />
+          <b:inputText value="#{livroBean.livro.estante}"/>
+        </div>
+        <div>
+          <h:outputLabel value="Exemplares:" />
+          <b:inputText value="#{livroBean.livro.exemplares}"/>
         </div>
       <f:facet name="footer">
         <b:commandButton look="success" value="Salvar" action="#{livroBean.salvar}" styleClass="pull-right" />
