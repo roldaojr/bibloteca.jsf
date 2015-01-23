@@ -1,59 +1,65 @@
 <ui:composition template="/templates/layout.xhtml"
-    xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:b="http://bootsfaces.net/ui"
-    xmlns:f="http://java.sun.com/jsf/core"  
-    xmlns:h="http://java.sun.com/jsf/html">
-<ui:define name="titulo">Cadastro de Livro</ui:define>
-<ui:define name="corpo">
-  <h:form>
-    <b:panel>
-      <f:facet name="heading">Editar Livro</f:facet>
-        <div>
-          <h:outputLabel value="Titulo:" />
-          <b:inputText value="#{livroBean.livro.titulo}"/>
-        </div>
-        <div>
-          <h:outputLabel value="Autor:" />
-          <h:selectOneMenu value="#{livroBean.livro.autor}" styleClass="form-control">
-            <f:selectItems value="#{autorBean.autores}"/>
-          </h:selectOneMenu>
-        </div>
-        <div>
-          <h:outputLabel value="Editora:" />
-          <h:selectOneMenu value="#{livroBean.livro.editora}" styleClass="form-control">
-            <f:selectItems value="#{editoraBean.editoras}"/>
-          </h:selectOneMenu>
-        </div>
-        <div>
-          <h:outputLabel value="Codigo de Barra:" />
-          <b:inputText value="#{livroBean.livro.codigoBarra}"/>
-        </div>
-        <div>
-          <h:outputLabel value="Ano:" />
-          <b:inputText value="#{livroBean.livro.ano}"/>
-        </div>
-        <div>
-          <h:outputLabel value="Volume:" />
-          <b:inputText value="#{livroBean.livro.volume}"/>
-        </div>
-        <div>
-          <h:outputLabel value="Edição:" />
-          <b:inputText value="#{livroBean.livro.edicao}"/>
-        </div>
-        <div>
-          <h:outputLabel value="Estante:" />
-          <b:inputText value="#{livroBean.livro.estante}"/>
-        </div>
-        <div>
-          <h:outputLabel value="Exemplares:" />
-          <b:inputText value="#{livroBean.livro.exemplares}"/>
-        </div>
-      <f:facet name="footer">
-        <b:commandButton look="success" value="Salvar" action="#{livroBean.salvar}" styleClass="pull-right" />
-        <b:commandButton value="Cancelar" action="listar.xhtml?faces-redirect=true" />
-      </f:facet>
-    </b:panel>
-  </h:form>
-</ui:define>
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+	<ui:define name="titulo">Cadastro de Livro</ui:define>
+	<ui:define name="corpo">
+		<h:form>
+			<b:panel>
+				<f:facet name="heading">Editar Livro</f:facet>
+				<h:messages id="msg" />
+				<div>
+					<h:outputLabel value="Titulo:" />
+					<b:inputText value="#{livroBean.livro.titulo}" />
+				</div>
+				<div>
+					<h:outputLabel value="Autor:" />
+					<h:selectOneMenu value="#{livroBean.livro.autor}"
+						styleClass="form-control">
+						<f:selectItems value="#{autorBean.autores}"/>
+					</h:selectOneMenu>
+				</div>
+				<div>
+					<h:outputLabel value="Editora:" />
+					<h:selectOneMenu value="#{livroBean.livro.editora}"
+						styleClass="form-control">
+						<f:selectItems value="#{editoraBean.editorasList}" var="e"
+							itemLabel="#{e.nome}" itemValue="#{e.id}" />
+					</h:selectOneMenu>
+				</div>
+				<div>
+					<h:outputLabel value="Codigo de Barra:" />
+					<b:inputText value="#{livroBean.livro.codigoBarra}" />
+				</div>
+				<div>
+					<h:outputLabel value="Ano:" />
+					<b:inputText value="#{livroBean.livro.ano}" />
+				</div>
+				<div>
+					<h:outputLabel value="Volume:" />
+					<b:inputText value="#{livroBean.livro.volume}" />
+				</div>
+				<div>
+					<h:outputLabel value="Edição:" />
+					<b:inputText value="#{livroBean.livro.edicao}" />
+				</div>
+				<div>
+					<h:outputLabel value="Estante:" />
+					<b:inputText value="#{livroBean.livro.estante}" />
+				</div>
+				<div>
+					<h:outputLabel value="Exemplares:" />
+					<b:inputText value="#{livroBean.livro.exemplares}" />
+				</div>
+				<f:facet name="footer">
+					<b:commandButton look="success" value="Salvar"
+						action="#{livroBean.salvar}" styleClass="pull-right" />
+					<b:commandButton value="Cancelar"
+						action="listar.xhtml?faces-redirect=true" />
+				</f:facet>
+			</b:panel>
+		</h:form>
+	</ui:define>
 </ui:composition>

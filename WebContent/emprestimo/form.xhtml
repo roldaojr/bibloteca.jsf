@@ -1,39 +1,45 @@
 <ui:composition template="/templates/layout.xhtml"
-    xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:b="http://bootsfaces.net/ui"
-    xmlns:f="http://java.sun.com/jsf/core"  
-    xmlns:h="http://java.sun.com/jsf/html">
-<ui:define name="titulo">Cadastro de Emprestimo</ui:define>
-<ui:define name="corpo">
-  <h:form>
-    <b:panel>
-      <f:facet name="heading">Editar Emprestimo</f:facet>
-        <div>
-          <h:outputLabel value="Livro:" />
-          <h:selectOneMenu value="#{emprestimoBean.emprestimo.livro}" styleClass="form-control">
-            <f:selectItems value="#{livroBean.livros}"/>
-          </h:selectOneMenu>
-        </div>
-        <div>
-          <h:outputLabel value="Pessoa:" />
-          <h:selectOneMenu value="#{emprestimoBean.emprestimo.pessoa}" styleClass="form-control">
-            <f:selectItems value="#{pessoasBean.pessoas}"/>
-          </h:selectOneMenu>
-        </div>
-        <div>
-          <h:outputLabel value="Data Emprestimo:" />
-          <b:inputText value="#{emprestimoBean.emprestimo.dataEmprestimo}"/>
-        </div>
-        <div>
-          <h:outputLabel value="Data devolução:" />
-          <b:inputText value="#{emprestimoBean.emprestimo.dataDevolucao}"/>
-        </div>
-      <f:facet name="footer">
-        <b:commandButton look="success" value="Salvar" action="#{emprestimoBean.salvar}" styleClass="pull-right" />
-        <b:commandButton value="Cancelar" action="listar.xhtml?faces-redirect=true" />
-      </f:facet>
-    </b:panel>
-  </h:form>
-</ui:define>
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+	<ui:define name="titulo">Cadastro de Emprestimo</ui:define>
+	<ui:define name="corpo">
+		<h:form>
+			<b:panel>
+				<f:facet name="heading">Editar Emprestimo</f:facet>
+				<h:messages id="msg" />
+				<div>
+					<h:outputLabel value="Livro:" />
+					<h:selectOneMenu value="#{emprestimoBean.emprestimo.livro}"
+						styleClass="form-control">
+						<f:selectItems value="#{livroBean.livros}" var="l"
+							itemLabel="#{l.titulo}" itemValue="#{l.id}" />
+					</h:selectOneMenu>
+				</div>
+				<div>
+					<h:outputLabel value="Pessoa:" />
+					<h:selectOneMenu value="#{emprestimoBean.emprestimo.pessoa}"
+						styleClass="form-control">
+						<f:selectItems value="#{pessoasBean.pessoas}" />
+					</h:selectOneMenu>
+				</div>
+				<div>
+					<h:outputLabel value="Data Emprestimo:" />
+					<b:datepicker value="#{emprestimoBean.emprestimo.dataEmprestimo}" />
+				</div>
+				<div>
+					<h:outputLabel value="Data devolução:" />
+					<b:datepicker value="#{emprestimoBean.emprestimo.dataDevolucao}" />
+				</div>
+				<f:facet name="footer">
+					<b:commandButton look="success" value="Salvar"
+						action="#{emprestimoBean.salvar}" styleClass="pull-right" />
+					<b:commandButton value="Cancelar"
+						action="listar.xhtml?faces-redirect=true" />
+				</f:facet>
+			</b:panel>
+		</h:form>
+	</ui:define>
 </ui:composition>

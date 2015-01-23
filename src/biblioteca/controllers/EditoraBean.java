@@ -32,7 +32,7 @@ public class EditoraBean {
 		listaEditoras = new ListDataModel<>(p);
 		return listaEditoras;
 	}
-	
+
 	public String adicionar() {
 		editora = new Editora();
 		return "form?faces-redirect=true";

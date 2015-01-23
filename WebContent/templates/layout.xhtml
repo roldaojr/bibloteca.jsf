@@ -1,3 +1,4 @@
+<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets" 
@@ -6,7 +7,11 @@
       xmlns:h="http://java.sun.com/jsf/html">
 <h:head>
   <h:outputStylesheet name="css/bootstrap.min.css" />
+  <h:outputStylesheet name="css/bsf.css" />
   <h:outputStylesheet name="css/estilos.css" />
+  <h:outputStylesheet name="css/jq.ui.core.css" />
+  <h:outputStylesheet name="css/jq.ui.datepicker.css" />
+  <h:outputStylesheet name="css/jq.ui.theme.css" />
   <title>
     Biblioteca.jsf - <ui:insert name="titulo"></ui:insert>
   </title>
@@ -31,6 +36,10 @@
       </b:column>
     </b:row>
   </b:container>
+  <h:outputScript name="jq/jquery.js"/>
   <h:outputScript name="js/bootstrap.min.js"/>
+  <h:outputScript name="js/bsf.js"/>
+  <h:outputScript name="jq/ui/core.js"/>
+  <h:outputScript name="jq/ui/datepicker.js"/>
 </h:body>
 </html>
