@@ -1,8 +1,10 @@
 package biblioteca.dominio;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Livro {
@@ -17,7 +19,11 @@ public class Livro {
 	private int ano;
 	private int volume;
 	private int edicao;
-
+	@ManyToOne(fetch=FetchType.LAZY)
+	private Editora editora;
+	@ManyToOne(fetch=FetchType.LAZY)
+	private Autor autor;
+	
 	public int getId() {
 		return id;
 	}
@@ -29,6 +35,18 @@ public class Livro {
 	}
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
+	}
+	public Editora getEditora() {
+		return editora;
+	}
+	public void setEditora(Editora editora) {
+		this.editora = editora;
+	}
+	public Autor getAutor() {
+		return autor;
+	}
+	public void setAutor(Autor autor) {
+		this.autor = autor;
 	}
 	public String getCodigoBarra() {
 		return codigoBarra;
@@ -71,5 +89,8 @@ public class Livro {
 	}
 	public void setEdicao(int edicao) {
 		this.edicao = edicao;
+	}
+	public String toString(){
+		return titulo;
 	}
 }

@@ -10,6 +10,18 @@
     <b:panel>
       <f:facet name="heading">Editar Emprestimo</f:facet>
         <div>
+          <h:outputLabel value="Livro:" />
+          <h:selectOneMenu value="#{emprestimoBean.emprestimo.livro}" styleClass="form-control">
+            <f:selectItems value="#{livroBean.livros}"/>
+          </h:selectOneMenu>
+        </div>
+        <div>
+          <h:outputLabel value="Pessoa:" />
+          <h:selectOneMenu value="#{emprestimoBean.emprestimo.pessoa}" styleClass="form-control">
+            <f:selectItems value="#{pessoasBean.pessoas}"/>
+          </h:selectOneMenu>
+        </div>
+        <div>
           <h:outputLabel value="Data Emprestimo:" />
           <b:inputText value="#{emprestimoBean.emprestimo.dataEmprestimo}"/>
         </div>

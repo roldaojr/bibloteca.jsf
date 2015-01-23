@@ -3,8 +3,10 @@ package biblioteca.dominio;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Emprestimo {
@@ -13,7 +15,11 @@ public class Emprestimo {
 	private int id;
 	private Date dataEmprestimo;
 	private Date dataDevolucao;
-
+	@ManyToOne(fetch=FetchType.LAZY)
+	private Livro livro;
+	@ManyToOne(fetch=FetchType.LAZY)
+	private Pessoa pessoa;
+	
 	public int getId() {
 		return id;
 	}
@@ -32,4 +38,16 @@ public class Emprestimo {
 	public void setDataDevolucao(Date dataDevolucao) {
 		this.dataDevolucao = dataDevolucao;
 	}	
+	public Livro getLivro() {
+		return livro;
+	}
+	public void setLivro(Livro livro) {
+		this.livro = livro;
+	}
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
+	}
 }

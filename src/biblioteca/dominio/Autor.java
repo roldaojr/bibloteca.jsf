@@ -30,4 +30,7 @@ public class Autor {
 	public void setSobrenome(String sobrenome) {
 		this.sobrenome = sobrenome;
 	}
+	public String toString() {
+		return nome+" "+sobrenome;
+	}
 }

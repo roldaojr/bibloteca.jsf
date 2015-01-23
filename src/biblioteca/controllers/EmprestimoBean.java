@@ -16,7 +16,7 @@ import biblioteca.dominio.Emprestimo;
 public class EmprestimoBean {
 	@ManagedProperty(value="#{emprestimoDao}")
 	private EmprestimoDao emprestimoDao;
-
+	
 	private Emprestimo emprestimo;
 	private DataModel<Emprestimo> listaEmprestimos;
 	

@@ -14,6 +14,18 @@
           <b:inputText value="#{livroBean.livro.titulo}"/>
         </div>
         <div>
+          <h:outputLabel value="Autor:" />
+          <h:selectOneMenu value="#{livroBean.livro.autor}" styleClass="form-control">
+            <f:selectItems value="#{autorBean.autores}"/>
+          </h:selectOneMenu>
+        </div>
+        <div>
+          <h:outputLabel value="Editora:" />
+          <h:selectOneMenu value="#{livroBean.livro.editora}" styleClass="form-control">
+            <f:selectItems value="#{editoraBean.editoras}"/>
+          </h:selectOneMenu>
+        </div>
+        <div>
           <h:outputLabel value="Codigo de Barra:" />
           <b:inputText value="#{livroBean.livro.codigoBarra}"/>
         </div>
