@@ -6,11 +6,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import biblioteca.BaseEntity;
+
 @Entity
-public class Livro {
+public class Livro implements BaseEntity {
 	@Id
 	@GeneratedValue
-	private int id;
+	private long id;
 	private String titulo;
 	private String codigoBarra;
 	private int estante;
@@ -24,7 +26,7 @@ public class Livro {
 	@ManyToOne(fetch=FetchType.LAZY)
 	private Autor autor;
 	
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 	public void setId(int id) {

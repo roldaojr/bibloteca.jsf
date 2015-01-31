@@ -4,16 +4,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import biblioteca.BaseEntity;
+
 @Entity
-public class Pessoa {
+public class Pessoa implements BaseEntity {
 	@Id
 	@GeneratedValue
-	private int id;
+	private long id;
 	private long cpf;
 	private String nome;
 	private String telefone;
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 	public void setId(int id) {

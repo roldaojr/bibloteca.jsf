@@ -1,5 +1,6 @@
 package biblioteca.dao;
 
+import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 import javax.faces.bean.ApplicationScoped;
@@ -12,7 +13,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import biblioteca.JpaResourceBean;
 
 @ApplicationScoped
-public abstract class GenericDao<T> {
+public class GenericDao<T> {
 	@ManagedProperty(value="#{jpaResourceBean}")
     protected JpaResourceBean jpa;
 	
@@ -20,6 +21,12 @@ public abstract class GenericDao<T> {
 	
 	public GenericDao(Class<T> type) {
 		this.type = type;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public GenericDao() {
+		this.type = ((Class) ((ParameterizedType) getClass()
+				.getGenericSuperclass()).getActualTypeArguments()[0]);
 	}
 	
 	public void create(T t) {
@@ -57,6 +64,11 @@ public abstract class GenericDao<T> {
 		} finally {
 			em.close();
 		}
+	}
+	
+	public T find(long id) {
+		EntityManager em = jpa.getEMF().createEntityManager();
+		return em.find(type, id);
 	}
 
 	public JpaResourceBean getJpa() {

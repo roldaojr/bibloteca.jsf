@@ -4,15 +4,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import biblioteca.BaseEntity;
+
 @Entity
-public class Autor {
+public class Autor implements BaseEntity {
 	@Id
 	@GeneratedValue
-	private int id;
+	private long id;
 	private String nome;
 	private String sobrenome;
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 	public void setId(int id) {

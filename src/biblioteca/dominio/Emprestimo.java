@@ -8,11 +8,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import biblioteca.BaseEntity;
+
 @Entity
-public class Emprestimo {
+public class Emprestimo implements BaseEntity {
 	@Id
 	@GeneratedValue
-	private int id;
+	private long id;
 	private Date dataEmprestimo;
 	private Date dataDevolucao;
 	@ManyToOne(fetch=FetchType.LAZY)
@@ -20,7 +22,7 @@ public class Emprestimo {
 	@ManyToOne(fetch=FetchType.LAZY)
 	private Pessoa pessoa;
 	
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 	public void setId(int id) {

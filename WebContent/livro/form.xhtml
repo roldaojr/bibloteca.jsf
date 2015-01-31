@@ -17,15 +17,15 @@
 				<div>
 					<h:outputLabel value="Autor:" />
 					<h:selectOneMenu value="#{livroBean.livro.autor}"
-						styleClass="form-control">
+						styleClass="form-control" converter="biblioteca.converters.SimpleEntityConverter">
 						<f:selectItems value="#{autorBean.autores}"/>
 					</h:selectOneMenu>
 				</div>
 				<div>
 					<h:outputLabel value="Editora:" />
 					<h:selectOneMenu value="#{livroBean.livro.editora}"
-						styleClass="form-control">
-						<f:selectItems value="#{editoraBean.editorasList}" var="e"
+						styleClass="form-control" converter="biblioteca.converters.SimpleEntityConverter">
+						<f:selectItems value="#{editoraBean.editoras}" var="e"
 							itemLabel="#{e.nome}" itemValue="#{e.id}" />
 					</h:selectOneMenu>
 				</div>
