@@ -23,7 +23,7 @@ public class GenericDao<T> {
 		this.type = type;
 	}
 	
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public GenericDao() {
 		this.type = ((Class) ((ParameterizedType) getClass()
 				.getGenericSuperclass()).getActualTypeArguments()[0]);

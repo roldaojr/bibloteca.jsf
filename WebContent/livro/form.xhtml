@@ -8,7 +8,7 @@
 	<ui:define name="corpo">
 		<h:form>
 			<b:panel>
-				<f:facet name="heading">Editar Livro</f:facet>
+				<f:facet name="heading">Livro</f:facet>
 				<h:messages id="msg" />
 				<div>
 					<h:outputLabel value="Titulo:" />
@@ -16,18 +16,21 @@
 				</div>
 				<div>
 					<h:outputLabel value="Autor:" />
+					<div class="form-group">
 					<h:selectOneMenu value="#{livroBean.livro.autor}"
-						styleClass="form-control" converter="biblioteca.converters.SimpleEntityConverter">
-						<f:selectItems value="#{autorBean.autores}"/>
+						styleClass="form-control" converter="omnifaces.SelectItemsConverter">
+						<f:selectItems value="#{autorBean.autores}" var="a" itemLabel="#{a.nome}" itemValue="#{a}" />
 					</h:selectOneMenu>
+					</div>
 				</div>
 				<div>
 					<h:outputLabel value="Editora:" />
+					<div class="form-group">
 					<h:selectOneMenu value="#{livroBean.livro.editora}"
-						styleClass="form-control" converter="biblioteca.converters.SimpleEntityConverter">
-						<f:selectItems value="#{editoraBean.editoras}" var="e"
-							itemLabel="#{e.nome}" itemValue="#{e.id}" />
+						styleClass="form-control" converter="omnifaces.SelectItemsConverter">
+						<f:selectItems value="#{editoraBean.editoras}" var="e" itemLabel="#{e.nome}" itemValue="#{e}" />
 					</h:selectOneMenu>
+					</div>
 				</div>
 				<div>
 					<h:outputLabel value="Codigo de Barra:" />

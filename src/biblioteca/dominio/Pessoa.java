@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import biblioteca.BaseEntity;
 
 @Entity
-public class Pessoa implements BaseEntity {
+public class Pessoa extends BaseEntity {
 	@Id
 	@GeneratedValue
 	private long id;
@@ -18,7 +18,7 @@ public class Pessoa implements BaseEntity {
 	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public long getCpf() {
@@ -38,8 +38,5 @@ public class Pessoa implements BaseEntity {
 	}
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
-	}
-	public String toString() {
-		return nome;
 	}
 }

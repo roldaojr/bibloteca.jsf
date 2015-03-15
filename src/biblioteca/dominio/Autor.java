@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import biblioteca.BaseEntity;
 
 @Entity
-public class Autor implements BaseEntity {
+public class Autor extends BaseEntity {
 	@Id
 	@GeneratedValue
 	private long id;
@@ -17,7 +17,7 @@ public class Autor implements BaseEntity {
 	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getNome() {
@@ -31,8 +31,5 @@ public class Autor implements BaseEntity {
 	}
 	public void setSobrenome(String sobrenome) {
 		this.sobrenome = sobrenome;
-	}
-	public String toString() {
-		return nome+" "+sobrenome;
 	}
 }

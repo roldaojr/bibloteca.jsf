@@ -11,21 +11,21 @@ import javax.persistence.ManyToOne;
 import biblioteca.BaseEntity;
 
 @Entity
-public class Emprestimo implements BaseEntity {
+public class Emprestimo extends BaseEntity {
 	@Id
 	@GeneratedValue
 	private long id;
 	private Date dataEmprestimo;
 	private Date dataDevolucao;
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	private Livro livro;
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	private Pessoa pessoa;
 	
 	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public Date getDataEmprestimo() {

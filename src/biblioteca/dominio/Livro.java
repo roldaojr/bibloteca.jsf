@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 import biblioteca.BaseEntity;
 
 @Entity
-public class Livro implements BaseEntity {
+public class Livro extends BaseEntity {
 	@Id
 	@GeneratedValue
 	private long id;
@@ -29,7 +29,7 @@ public class Livro implements BaseEntity {
 	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id; 
 	}
 	public String getTitulo() {
@@ -91,8 +91,5 @@ public class Livro implements BaseEntity {
 	}
 	public void setEdicao(int edicao) {
 		this.edicao = edicao;
-	}
-	public String toString(){
-		return titulo;
 	}
 }

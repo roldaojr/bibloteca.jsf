@@ -12,26 +12,33 @@
 				<h:messages id="msg" />
 				<div>
 					<h:outputLabel value="Livro:" />
+					<div class="form-group">
 					<h:selectOneMenu value="#{emprestimoBean.emprestimo.livro}"
-						styleClass="form-control" converter="biblioteca.converters.SimpleEntityConverter">
-						<f:selectItems value="#{livroBean.livros}" var="l"
-							itemLabel="#{l.titulo}" itemValue="#{l.id}" />
+						styleClass="form-control" converter="omnifaces.SelectItemsConverter">
+						<f:selectItems value="#{livroBean.livros}" var="l" itemLabel="#{l.titulo}" itemValue="#{l}" />
 					</h:selectOneMenu>
+					</div>
 				</div>
 				<div>
 					<h:outputLabel value="Pessoa:" />
+					<div class="form-group">
 					<h:selectOneMenu value="#{emprestimoBean.emprestimo.pessoa}"
-						styleClass="form-control" converter="biblioteca.converters.SimpleEntityConverter">
-						<f:selectItems value="#{pessoasBean.pessoas}" />
+						styleClass="form-control" converter="omnifaces.SelectItemsConverter">
+						<f:selectItems value="#{pessoaBean.pessoas}" var="p" itemLabel="#{p.nome}" itemValue="#{p}" />
 					</h:selectOneMenu>
+					</div>
 				</div>
 				<div>
 					<h:outputLabel value="Data Emprestimo:" />
+					<div class="form-group">
 					<b:datepicker value="#{emprestimoBean.emprestimo.dataEmprestimo}" />
+					</div>
 				</div>
 				<div>
 					<h:outputLabel value="Data devolução:" />
+					<div class="form-group">
 					<b:datepicker value="#{emprestimoBean.emprestimo.dataDevolucao}" />
+					</div>
 				</div>
 				<f:facet name="footer">
 					<b:commandButton look="success" value="Salvar"
