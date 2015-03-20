@@ -14,6 +14,7 @@ public class Pessoa extends BaseEntity {
 	private long cpf;
 	private String nome;
 	private String telefone;
+	private String email;
 
 	public Long getId() {
 		return id;
@@ -38,5 +39,11 @@ public class Pessoa extends BaseEntity {
 	}
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 }
